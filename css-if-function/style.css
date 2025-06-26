@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+.box {
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    line-height: 300px;
+    font-weight: bold;
+    font-size: 4em;
+    font-family: "Ubuntu", sans-serif;
+}
+
+/* IF Condition 1 */
+.box {
+    background-color: if(
+        media(width <= 600px): green;
+        media(width <= 1000px): blue;
+        else: red;
+    );
+
+    color: if(
+        media(width <= 600px): aliceblue;
+        media(width <= 1000px): yellow;
+        else: white;
+    );
+}
+
+/* IF Condition 2 */
+.box {
+    --theme: "eleven";
+
+    background-color: if(
+        style(--theme: "eleven"): green;
+        else: red;
+    );
+}
+
+/* IF Condition 3 */
+.box {
+    --status: attr(data-status);
+
+    background-color: if(
+        style(--status: "loading"): green;
+        style(--status: "loaded"): blue;
+        style(--status: "error"): red;
+        else: black;
+    );
+}
+
+/* IF Condition 4 */
+:root {
+    --resp: if(
+        media(width <= 600px): "sm";
+        media(width <= 1000px): "md";
+        else: "lg";
+    );
+}
